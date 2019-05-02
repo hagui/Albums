@@ -40,6 +40,7 @@ buildscript {
         okioVersion = '2.2.2'
         moshiVersion = '2.5.0'
         picassoersion = '2.71828'
+        mockitoVersion = '2.11.0'
     }
     repositories {
         google()
