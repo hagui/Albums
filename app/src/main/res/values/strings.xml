@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">LeBoncoin Test</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_track_title">Mes chansons</string>
+    <string name="chanson_list_title">Liste des chansons</string>
+    <string name="menu_item_share_plant">partager</string>
+    <string name="menu_filter_by_album">Filtrer</string>
+    <string name="a11y_song_item_image">Image de song</string>
+    <string name="navigation_drawer_header_content_description">Logo de l\\\'application</string>
+    <string name="navigation_drawer_header_title">Mes musiques</string>
+    <string name="song_details_title">list detail</string>
 </resources>

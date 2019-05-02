@@ -3,34 +3,28 @@ package com.tuto.leboncointest.model
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Before
 
 class SongTest {
+    private lateinit var song: Song
 
-    @Test
-    fun getAlbumId() {
+    @Before fun setUp(){
+        song = Song(1,
+        2,
+        "url",
+        "lorem",
+        "url")
     }
 
-    @Test
-    fun getId() {
+    @Test fun test_default_values() {
+        val defaultSong = Song(1, 2, "","Description", "ImageURL")
+        assertEquals(2, defaultSong.id)
+        assertEquals("", defaultSong.thumbnailUrl)
     }
 
-    @Test
-    fun getThumbnailUrl() {
+
+    @Test fun test_toString(){
+        assertEquals("lorem" , song.toString())
     }
 
-    @Test
-    fun getTitle() {
-    }
-
-    @Test
-    fun getUrl() {
-    }
-
-    @Test
-    fun copy() {
-    }
-
-    @Test
-    fun equals() {
-    }
 }
