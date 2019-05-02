@@ -1,7 +1,6 @@
 package com.tuto.leboncointest.dagger
 
 import android.app.Application
-import com.tuto.leboncointest.BuildConfig
 import com.tuto.leboncointest.datasources.webservice.WebService
 import dagger.Module
 import dagger.Provides
@@ -50,7 +49,8 @@ class NetModule(private val baseUrl: String) {
     @Singleton
     fun provideInterceptor(): Interceptor {
         return HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            level =  HttpLoggingInterceptor.Level.BODY
+           // else HttpLoggingInterceptor.Level.NONE
         }
     }
 

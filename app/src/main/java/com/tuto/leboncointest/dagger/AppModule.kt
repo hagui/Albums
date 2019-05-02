@@ -19,7 +19,7 @@ class AppModule{
     @Provides
     fun provideWebService(): WebService {
         return Retrofit.Builder()
-                .baseUrl("https://static.leboncoin.fr/img/shared/")
+                .baseUrl("https://static.leboncoin.fr")
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()
                 .create(WebService::class.java)

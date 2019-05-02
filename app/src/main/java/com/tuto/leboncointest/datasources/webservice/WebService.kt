@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface WebService {
 
-    @GET("/technical-test.json")
+    @GET("/img/shared/technical-test.json")
     fun getAlbums(): Call<List<Song>>
 }

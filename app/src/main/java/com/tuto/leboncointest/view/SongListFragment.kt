@@ -25,26 +25,13 @@ class SongListFragment : Fragment(), Injectable {
     @Inject
     lateinit var utils: Utils
     private lateinit var albumsViewModel: AlbumsViewModel
-    private  val adapter = SongAdapter()
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        // AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState)
-    }
+    private  var adapter = SongAdapter()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = FragmentSongListBinding.inflate(inflater, container, false)
         val context = context ?: return binding.root
-
-
          //val adapter = SongAdapter()
-
         //  subscribeUi()
         albumsViewModel = ViewModelProviders.of(this, viewModelFactory).get(AlbumsViewModel::class.java)
         subscribeUi()
@@ -60,6 +47,7 @@ class SongListFragment : Fragment(), Injectable {
 
 
     private fun subscribeUi() {
+        albumsViewModel.songsInput.value = 1
 
         albumsViewModel.songs.observe(
             this, ResourceObserver(
