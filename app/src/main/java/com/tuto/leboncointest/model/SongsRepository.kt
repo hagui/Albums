@@ -20,7 +20,7 @@ open class SongsRepository @Inject constructor(
 ) {
     val TAG = "songsRepository"
 
-    open fun getSongs(albumId: Int = 0): LiveData<Resource<List<Song>>> {
+    open fun getSongs(id: Int = 0): LiveData<Resource<List<Song>>> {
         return object : NetworkBoundResource<List<Song>>(appExecutors) {
 
             override fun saveNetworkCallResult(data: List<Song>?) {
@@ -38,9 +38,9 @@ open class SongsRepository @Inject constructor(
 
             override fun loadFromDatabase(): LiveData<List<Song>> {
                 Log.d(TAG, "loadFromDatabase")
-                return when (albumId == 0) {
+                return when (id == 0) {
                     true -> songsDao.querySongs()
-                    else -> songsDao.querySongsByAlbum(albumId)
+                    else -> songsDao.querySongsByAlbum(id)
                 }
             }
 
@@ -50,4 +50,17 @@ open class SongsRepository @Inject constructor(
             }
         }.asLiveData()
     }
+
+    open fun getSong(id: Int) = songsDao.querySongById(id)
+    //TODO For Singleton instantiation
+   /* companion object {
+
+
+        @Volatile private var instance: SongsRepository? = null
+
+        fun getInstance(songsDao: SongsDao) =
+            instance ?: synchronized(this) {
+                instance ?: SongsRepository(webService,songsDao, ).also { instance = it }
+            }
+    }*/
 }

@@ -15,6 +15,9 @@ interface SongsDao {
     @Query("SELECT * FROM songs WHERE albumId LIKE :albumId")
     fun querySongsByAlbum(albumId :Int): LiveData<List<Song>>
 
+    @Query("SELECT * FROM songs WHERE id LIKE :id ")
+    fun querySongById(id :Int): LiveData<Song>
+
     @Insert(onConflict = REPLACE)
     fun insertSong(song: Song)
 

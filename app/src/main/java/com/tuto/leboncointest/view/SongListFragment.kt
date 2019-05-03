@@ -47,7 +47,7 @@ class SongListFragment : Fragment(), Injectable {
 
 
     private fun subscribeUi() {
-        albumsViewModel.songsInput.value = 1
+        albumsViewModel.songsInput.value = 0
 
         albumsViewModel.songs.observe(
             this, ResourceObserver(
