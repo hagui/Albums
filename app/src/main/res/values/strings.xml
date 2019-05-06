@@ -11,4 +11,5 @@
     <string name="navigation_drawer_header_content_description">Logo de l\\\'application</string>
     <string name="navigation_drawer_header_title">Mes musiques</string>
     <string name="song_details_title">list detail</string>
+    <string name="search_hint">AlbumId</string>
 </resources>

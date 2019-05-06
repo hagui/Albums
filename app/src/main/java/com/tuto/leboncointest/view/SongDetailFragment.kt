@@ -13,11 +13,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.tuto.leboncointest.R
 import com.tuto.leboncointest.dagger.Injectable
 import com.tuto.leboncointest.databinding.FragmentSongDetailBinding
-
-import com.tuto.leboncointest.utils.Utils
 import com.tuto.leboncointest.viewmodels.SongDetailViewModel
 import com.tuto.leboncointest.viewmodels.ViewModelFactory
-import kotlinx.android.synthetic.main.fragment_song_detail.*
 import javax.inject.Inject
 
 
@@ -35,6 +32,9 @@ class SongDetailFragment : Fragment(), Injectable {
         super.onCreate(savedInstanceState)
 
     }
+    init {
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,14 +42,14 @@ class SongDetailFragment : Fragment(), Injectable {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val songDetailViewModel = ViewModelProviders.of(
+      /*   songDetailViewModel = ViewModelProviders.of(
             this,
             viewModelFactory
-        ).get(songDetailViewModel::class.java)
+        ).get(songDetailViewModel::class.java)*/
 
         val binding = DataBindingUtil.inflate<FragmentSongDetailBinding>(
             inflater, R.layout.fragment_song_detail, container, false
-        ).apply {
+        )/*.apply {
             viewModel = songDetailViewModel
             setLifecycleOwner(this@SongDetailFragment)
             fab.setOnClickListener { view ->
@@ -59,7 +59,7 @@ class SongDetailFragment : Fragment(), Injectable {
 
         songDetailViewModel.song.observe(this, Observer {
 
-        })
+        })*/
 
 
         setHasOptionsMenu(true)
@@ -67,9 +67,14 @@ class SongDetailFragment : Fragment(), Injectable {
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+      /*  songDetailViewModel = ViewModelProviders.of(
+            this,
+            viewModelFactory
+        ).get(songDetailViewModel::class.java)*/
 
     }
 }
